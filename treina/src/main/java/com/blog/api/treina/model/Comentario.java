@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.ManyToAny;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,6 +34,7 @@ public class Comentario {
     private String texto;
 
     @Column
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDateTime dataDeCriacao;
 
     @OneToOne

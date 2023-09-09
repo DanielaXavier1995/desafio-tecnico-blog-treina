@@ -6,6 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,10 +30,13 @@ public class Usuario {
     @Column(nullable = false, length = 150)
     private String sobrenome;
 
-    @Column(nullable = false, length = 100)
+    @Email(message = "Email isn't valid")
+    @Column(nullable = false, length = 100, unique = true)
+    @NotEmpty(message = "Email cannot be empty")
     private String email;
 
     @Column(nullable = false, length = 20)
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,16}$")
     private String senha;
 
 }
