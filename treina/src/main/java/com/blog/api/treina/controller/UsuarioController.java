@@ -19,7 +19,7 @@ import com.blog.api.treina.model.Usuario;
 import com.blog.api.treina.repository.UsuarioRepository;
 
 @RestController
-@RequestMapping(value = "/autor")
+@RequestMapping(value = "/authors")
 public class UsuarioController {
 
     @Autowired
